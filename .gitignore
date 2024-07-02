@@ -22,7 +22,6 @@ coverage
 /build
 /dist
 /out
-public
 
 # Misc
 .DS_Store

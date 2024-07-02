@@ -65,8 +65,25 @@ const getUserProfile = async (req, res) => {
     }
 };
 
+const getCustomers = async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const result = await pool.request().query(`
+            SELECT u.UsuarioID as id, u.Nombre as nombre, u.Email as email, COUNT(p.PedidoID) as totalCompras
+            FROM Usuarios u
+            LEFT JOIN Pedidos p ON u.UsuarioID = P.ClienteID
+            GROUP BY u.UsuarioID, u.Nombre, u.Email
+        `);
+        res.json(result.recordset);
+    } catch (error) {
+        console.error('Error fetching customers:', error);
+        res.status(500).json({ message: 'Error fetching customers' });
+    }
+};
+
 module.exports = {
     registerUser,
     loginUser,
-    getUserProfile
+    getUserProfile,
+    getCustomers
 };

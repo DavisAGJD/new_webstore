@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* Reset default styles */
 body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
@@ -10,15 +10,25 @@ body {
     color: #fff;
 }
 
-/* src/components/Navbar.css */
-/* src/styles.css */
-
+/* Navbar Styles */
 .navbar {
     background-color: #333;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
 
 .navbar-brand {
@@ -31,24 +41,15 @@ body {
     align-items: center;
 }
 
-.navbar-links a, .logout-button {
-    color: #fff;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
 .logout-button {
     background-color: #ff0000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    color: #fff;
 }
 
-
-
-
-
-
+/* Container Styles */
 .container {
     text-align: center;
     padding: 60px 20px;
@@ -76,11 +77,6 @@ body {
     text-shadow: 2px 2px 0px #000;
 }
 
-.container a {
-    text-decoration: none;
-    margin: 0 10px;
-}
-
 .container button {
     background-color: #3c3c3c;
     color: #fff;
@@ -97,6 +93,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Footer Styles */
 footer {
     background-color: #3c3c3c;
     color: #fff;
@@ -158,270 +155,304 @@ footer {
     background-color: #c0392b;
 }
 
-/* Estilos globales existentes... */
-
 /* Admin Page Styles */
-.admin-container {
-    padding: 20px;
-    color: white;
+.admin-dashboard {
+    display: flex;
 }
 
-.admin-container h2 {
-    color: #ffcc00;
-    font-size: 2em;
-    text-shadow: 2px 2px 0px #000;
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #2f3640;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background: #3b3b3b;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2f3640;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+header h2 {
+    font-size: 20px;
+}
+
+/* Search Wrapper Styles */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper span {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.search-wrapper input {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+/* User Wrapper Styles */
+.user-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-wrapper div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-wrapper div h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.user-wrapper div small {
+    margin: 0;
+    font-size: 12px;
+    color: #888;
+}
+
+/* Admin Content Styles */
+.admin-content {
+    padding: 20px;
+}
+
+.admin-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.admin-form, .admin-product-list, .admin-customer-list {
+    background: #333;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.admin-form h3, .admin-product-list h3, .admin-customer-list h2 {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background: #444;
+    color: #fff;
+}
+
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: #aaa;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Admin Product Form */
+.admin-form {
+    margin-bottom: 20px;
+    background: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-form h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.admin-form .form-group {
+    margin-bottom: 15px;
+}
+
+.admin-form .form-group input,
+.admin-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center; /* Centrar el texto */
+}
+
+textarea::placeholder {
+    text-align: center; /* Centrar el placeholder */
+}
+
+.admin-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-form button:hover {
+    background: #218838;
+}
+
+.admin-form .form-group input[type="text"],
+.admin-form .form-group input[type="number"] {
+    text-align: center;
+}
+
+/* Admin Content Container */
+.admin-content {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-content h2 {
+    font-size: 24px;
+    color: #fff;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.admin-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.admin-left {
-    width: 48%;
-    background-color: #3c3c3c;
+/* Admin Product List */
+.admin-product-list {
+    background: #3b3b3b;
     padding: 20px;
     border-radius: 10px;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-height: 400px;  /* Ajustar la altura */
-    display: flex;
-    flex-direction: column;
 }
 
-.admin-right {
-    width: 48%;
-    background-color: #3c3c3c;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-height: 600px;  /* Ajustar la altura para permitir el desplazamiento */
-    overflow-y: auto;     /* Permitir el desplazamiento vertical */
-}
-
-.admin-left h3,
-.admin-right h3 {
-    color: #ffcc00;
-    font-size: 1.5em;
-    text-shadow: 2px 2px 0px #000;
-    margin-bottom: 20px;
-    top: 0;
-    background-color: #3c3c3c; /* Fondo para el título fijo */
-    z-index: 1;         /* Asegurar que el título esté encima del contenido */
-    padding-top: 10px;
-}
-
-.add-product-form {
-    height: 100%;  /* Asegurar que el formulario use toda la altura disponible */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.add-product-form input,
-.add-product-form textarea {
-    width: calc(100% - 20px);  /* Ajustar el ancho para encajar dentro del padding */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    background-color: #fff;
-    color: #000;
-    box-sizing: border-box;  /* Asegurar que el padding y el borde se incluyan en el ancho */
-}
-
-.add-product-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #27ae60;
+.admin-product-list h3 {
+    font-size: 20px;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.add-product-form button:hover {
-    background-color: #1e8449;
-}
-
-.admin-right ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;  /* Espacio superior para el contenido desplazable */
-}
-
-.admin-right ul li {
-    padding: 10px;
-    background-color: #2e2e2e;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.product-cards {
     display: flex;
-    align-items: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+    gap: 10px; /* Ajuste de espacio entre las tarjetas */
+    justify-content: space-between;
 }
 
-.admin-right ul li img {
-    max-width: 100px;
-    max-height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 20px;
+.product-card {
+    background: #444;
+    padding: 10px; /* Ajuste del padding de las tarjetas */
+    border-radius: 10px;
+    margin-bottom: 10px; /* Ajuste del margen inferior */
+    flex: 0 1 calc(20% - 10px); /* Ajuste para filas de 3 a 5 productos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .product-info {
-    flex-grow: 1;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .product-info h4 {
-    margin: 0;
-    font-size: 1.2em;
+    font-size: 16px; /* Ajuste del tamaño de la fuente */
+    margin-bottom: 5px;
 }
 
 .product-info p {
-    margin: 5px 0;
-}
-
-.product-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    font-size: 12px; /* Ajuste del tamaño de la fuente */
 }
 
 .product-actions button {
-    padding: 5px;
-    background-color: #e74c3c;
-    color: #fff;
+    padding: 5px 10px;
+    margin: 5px;
+    background: #dc3545;
     border: none;
     border-radius: 5px;
+    color: #fff;
     cursor: pointer;
-    font-size: 0.9em;
     transition: background-color 0.3s;
 }
 
 .product-actions button:hover {
-    background-color: #c0392b;
+    background: #c82333;
 }
-
-.edit-product-form input,
-.edit-product-form textarea {
-    width: calc(100% - 20px);  /* Ajustar el ancho para encajar dentro del padding */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box;  /* Asegurar que el padding y el borde se incluyan en el ancho */
-}
-
-.edit-product-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #27ae60;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s;
-}
-
-.edit-product-form button:hover {
-    background-color: #1e8449;
-}
-
-.admin-section {
-    margin-top: 20px;
-}
-
-.admin-section h3 {
-    color: #ffcc00;
-    font-size: 1.5em;
-    text-shadow: 2px 2px 0px #000;
-    margin-bottom: 20px;
-}
-
-.admin-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.admin-section ul li {
-    padding: 10px;
-    background-color: #2e2e2e;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-/* src/styles.css */
-
-.admin-orders-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #333;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.order-card {
-    background-color: #444;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.order-header {
-    border-bottom: 1px solid #555;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.highlight {
-    color: #ff0;
-}
-
-.order-products {
-    margin-top: 10px;
-}
-
-.products-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #555;
-    padding: 10px;
-    border-radius: 5px;
-    width: 120px;
-}
-
-.product-image {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-bottom: 5px;
-    border-radius: 5px;
-}
-
-
-
-/* Estilos globales existentes... */
 
 /* Login Page Styles */
 .login-container {
@@ -502,12 +533,15 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    flex: 1 1 300px; /* Esto asegura que las tarjetas se ajusten uniformemente */
 }
 
 .product-card img {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
+    height: 200px; /* Asegurar una altura uniforme para las imágenes */
+    object-fit: cover; /* Asegurar que la imagen se ajuste sin distorsión */
 }
 
 .product-info h3 {
@@ -537,30 +571,7 @@ footer {
     transform: scale(1.05);
 }
 
-/* Navbar Styles */
-.navbar {
-    background-color: #333;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.2em;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-
-/* CartPage.css */
-
+/* Cart Page Styles */
 .cart-container {
     background-color: #2d2d2d;
     padding: 20px;
@@ -576,7 +587,6 @@ footer {
     font-size: 2.5em;
     color: #ffcc00;
     margin-bottom: 20px;
-    font-family: 'Press Start 2P', cursive;
 }
 
 .cart-items {
@@ -634,7 +644,6 @@ footer {
     font-size: 2em;
     margin-bottom: 20px;
     color: #ffcc00;
-    font-family: 'Press Start 2P', cursive;
 }
 
 .cart-actions {
@@ -648,7 +657,6 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2em;
-    font-family: 'Press Start 2P', cursive;
 }
 
 .red-button {
@@ -661,10 +669,7 @@ footer {
     color: white;
 }
 
-/* OrderHistoryPage.css */
-
-/* OrderHistoryPage.css */
-
+/* Order History Page Styles */
 .order-history-container {
     padding: 20px;
     background-color: #2a2a2a;
@@ -725,10 +730,6 @@ footer {
     margin-right: 10px;
 }
 
-.navbar {
-    margin-bottom: 20px;
-}
-
 .button {
     display: inline-block;
     padding: 10px 20px;
@@ -744,3 +745,198 @@ footer {
     background-color: #d32f2f;
 }
 
+/* Admin Orders Styles */
+.admin-orders-container {
+    padding: 20px;
+    color: #fff;
+    background-color: #6bbf59;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.admin-orders-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.order-card {
+    border: 1px solid #444;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #333;
+}
+
+.order-header {
+    margin-bottom: 10px;
+}
+
+.order-header h3 {
+    font-size: 1.5rem;
+    color: #ffd700;
+}
+
+.order-header p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.order-products h4 {
+    font-size: 1.2rem;
+    color: #ffd700;
+    margin: 10px 0;
+}
+
+.order-products .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.order-products .product-card {
+    background: #444;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.order-products .product-card img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.order-products .product-card p {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Admin Customers Styles */
+.admin-customers-container {
+    padding: 20px;
+    color: #fff;
+    background-color: #6bbf59;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.admin-customers-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.admin-customer-list {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-customer-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-customer-list th, .admin-customer-list td {
+    padding: 10px;
+    border: 1px solid #444;
+    color: #fff;
+    text-align: center;
+}
+
+.admin-customer-list th {
+    background: #555;
+}
+
+.admin-customer-list td {
+    background: #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 1em;
+        margin: 0 10px;
+    }
+
+    .admin-customers-container {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .admin-customer-list table {
+        font-size: 0.8em;
+    }
+}
+
+/*CategorysPage*/
+/* styles.css */
+.categories-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-card {
+    width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center; /* Asegura que el texto esté centrado */
+    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+.category-card:hover {
+    transform: scale(1.1);
+}
+
+.category-image-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-info {
+    color: #fff;
+}
+
+.category-info h3 {
+    font-size: 1em; /* Ajusta el tamaño de la fuente */
+    margin-top: 10px;
+    word-wrap: break-word; /* Permite el ajuste de palabras */
+    white-space: pre-wrap; /* Mantiene los saltos de línea y ajusta las palabras */
+    width: 100%; /* Asegura que el contenido ocupe todo el ancho */
+}

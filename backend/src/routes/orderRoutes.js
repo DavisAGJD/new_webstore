@@ -1,5 +1,4 @@
 // src/routes/orderRoutes.js
-
 const express = require('express');
 const { authenticateJWT } = require('../middleware/authMiddleware');
 const { createOrder, getOrderHistory, getOrdersForAdmin } = require('../controllers/orderController');

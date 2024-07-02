@@ -27,6 +27,7 @@ const Navbar = () => {
                                 <Link to="/cart">
                                     <FaShoppingCart /> {/* Ícono del carrito */}
                                 </Link>
+                                <Link to="/categories">Categories</Link>
                                 <Link to="/order-history">Order History</Link>
                             </>
                         )}

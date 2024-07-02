@@ -1,3 +1,83 @@
+/* Estilo para el contenedor de categorías */
+.categories-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.category-card {
+    width: 150px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+}
+
+.category-card:hover {
+    transform: scale(1.1);
+}
+
+.category-image-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-info {
+    color: #fff;
+}
+
+.category-info h3 {
+    font-size: 1em;
+    margin-top: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+/* Productos Page Styles */
+.productos-container {
+    padding: 20px;
+    color: white;
+}
+
+.productos-container h2 {
+    color: #ffcc00;
+    font-size: 2em;
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.productos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
 .product-card {
     background-color: #3c3c3c;
     padding: 20px;
@@ -8,15 +88,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1 1 300px; /* Esto asegura que las tarjetas se ajusten uniformemente */
+    flex: 1 1 300px;
 }
 
 .product-card img {
     max-width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
-    height: 200px; /* Asegurar una altura uniforme para las imágenes */
-    object-fit: cover; /* Asegurar que la imagen se ajuste sin distorsión */
+    height: 200px;
+    object-fit: cover;
 }
 
 .product-info h3 {
@@ -45,3 +125,5 @@
     background-color: #1e8449;
     transform: scale(1.05);
 }
+
+

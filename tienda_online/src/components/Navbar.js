@@ -14,7 +14,7 @@ const Navbar = () => {
                 <Link to="/">Our Store</Link>
             </div>
             <div className="navbar-links">
-                <Link to="/products">Products</Link>
+                <Link to="/products">Inicio</Link>
                 {user ? (
                     <>
                         {user.rolID === 2 ? ( // Check if user is admin
@@ -27,8 +27,7 @@ const Navbar = () => {
                                 <Link to="/cart">
                                     <FaShoppingCart /> {/* Ícono del carrito */}
                                 </Link>
-                                <Link to="/categories">Categories</Link>
-                                <Link to="/order-history">Order History</Link>
+                                <Link to="/order-history">Historial de compra</Link>
                             </>
                         )}
                         <button className="logout-button" onClick={logout}>Logout</button>

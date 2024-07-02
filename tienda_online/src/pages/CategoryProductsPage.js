@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
+import './styles/CategoryProductsPage.css';
 const CategoryProductsPage = () => {
     const { categoryID } = useParams();
     const [categoryName, setCategoryName] = useState('');

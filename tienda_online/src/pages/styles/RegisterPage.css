@@ -1,0 +1,59 @@
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #6bbf59;
+    color: #fff;
+}
+
+.register-container {
+    background-color: rgba(60, 60, 60, 0.9);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.register-container h2 {
+    margin-bottom: 20px;
+    color: #ffcc00;
+    font-size: 1.5em;
+}
+
+.register-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.register-container input, .register-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #3c3c3c;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.register-container button {
+    width: 100%;
+    background-color: #e74c3c;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.register-container button:hover {
+    background-color: #c0392b;
+}

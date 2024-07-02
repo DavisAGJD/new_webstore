@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../components/Sidebar';
+import './styles/AdminPage.css';
 
 const AdminDashboard = () => {
     const [products, setProducts] = useState([]);

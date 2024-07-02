@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import './styles/CustomerPage.css';
 
 const CustomersPage = () => {
     const [customers, setCustomers] = useState([]);

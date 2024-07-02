@@ -1,0 +1,352 @@
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #6bbf59;
+    color: #fff;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: #fff;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+}
+
+.logout-button {
+    background-color: #ff0000;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.admin-dashboard {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #2f3640;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background: #3b3b3b;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2f3640;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+header h2 {
+    font-size: 20px;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper span {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.search-wrapper input {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-wrapper img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-wrapper div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-wrapper div h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.user-wrapper div small {
+    margin: 0;
+    font-size: 12px;
+    color: #888;
+}
+
+.admin-content {
+    padding: 20px;
+}
+
+.admin-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.admin-form, .admin-product-list, .admin-customer-list {
+    background: #333;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.admin-form h3, .admin-product-list h3, .admin-customer-list h2 {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background: #444;
+    color: #fff;
+}
+
+.form-group input::placeholder, .form-group textarea::placeholder {
+    color: #aaa;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.admin-form {
+    margin-bottom: 20px;
+    background: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-form h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.admin-form .form-group {
+    margin-bottom: 15px;
+}
+
+.admin-form .form-group input,
+.admin-form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background: #444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+}
+
+textarea::placeholder {
+    text-align: center;
+}
+
+.admin-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-form button:hover {
+    background: #218838;
+}
+
+.admin-form .form-group input[type="text"],
+.admin-form .form-group input[type="number"] {
+    text-align: center;
+}
+
+.admin-content {
+    background: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.admin-content h2 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-product-list {
+    background: #3b3b3b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.admin-product-list h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.product-card {
+    background: #444;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    flex: 0 1 calc(20% - 10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.product-info {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.product-info h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.product-info p {
+    font-size: 12px;
+}
+
+.product-actions button {
+    padding: 5px 10px;
+    margin: 5px;
+    background: #dc3545;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-actions button:hover {
+    background: #c82333;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}

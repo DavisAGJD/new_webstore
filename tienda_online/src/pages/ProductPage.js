@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { CartContext } from '../components/CartContext';
-
+import './styles/ProductPage.css';
 const ProductsPage = () => {
     const [products, setProducts] = useState([]);
     const { addToCart } = useContext(CartContext);

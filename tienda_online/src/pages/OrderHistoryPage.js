@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
-
+import './styles/OrderHistoryPage.css';
 const OrderHistoryPage = () => {
     const [orders, setOrders] = useState([]);
 

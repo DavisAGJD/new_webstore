@@ -2,7 +2,7 @@
     import axios from 'axios';
     import { CartContext } from '../components/CartContext';
     import Navbar from '../components/Navbar';
-
+    import './styles/CartPage.css';
     const CartPage = () => {
         const { cart, total, clearCart, updateQuantity } = useContext(CartContext);
 

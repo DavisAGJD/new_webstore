@@ -7,8 +7,8 @@ const HomePage = () => {
         <div>
             <Navbar />
             <div className="container">
-                <h1>Welcome to Our Online Store</h1>
-                <p>Explore our wide range of products and enjoy the best deals!</p>
+                <h1>Bienvenidos a nuestra tienda en línea</h1>
+                <p>¡Explora nuestra amplia gama de productos y disfruta de las mejores ofertas!</p>
                 <div>
                     <Link to="/login">
                         <button>Login</button>
@@ -19,7 +19,6 @@ const HomePage = () => {
                 </div>
             </div>
             <footer>
-                <p>&copy; 2024 Our Online Store. All rights reserved.</p>
             </footer>
         </div>
     );

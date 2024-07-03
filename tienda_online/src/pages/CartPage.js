@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { CartContext } from '../components/CartContext';
 import './styles/CartPage.css';
@@ -6,15 +7,41 @@ import './styles/CartPage.css';
 const CartPage = () => {
     const { cart, total, clearCart, updateQuantity } = useContext(CartContext);
     const [showConfirmation, setShowConfirmation] = useState(false);
+    const [error, setError] = useState(null);
 
     const handlePlaceOrder = () => {
         setShowConfirmation(true);
     };
 
-    const confirmOrder = () => {
-        // Aquí puedes agregar la lógica para procesar el pedido
-        clearCart();
-        setShowConfirmation(false);
+    const confirmOrder = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const order = {
+                products: cart.map(item => ({
+                    ProductoID: item.ProductoID,
+                    Cantidad: item.Cantidad,
+                    Precio: item.Precio
+                })),
+                total,
+                estado: 'Pendiente'
+            };
+
+            const response = await axios.post('http://localhost:5000/api/orders', order, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (response.status === 201) {
+                clearCart();
+                setShowConfirmation(false);
+            } else {
+                setError('Error al procesar el pedido. Inténtalo de nuevo.');
+            }
+        } catch (error) {
+            setError('Error al procesar el pedido. Inténtalo de nuevo.');
+            console.error('Error placing order:', error);
+        }
     };
 
     const cancelOrder = () => {
@@ -22,11 +49,21 @@ const CartPage = () => {
     };
 
     if (!cart) {
-        return <div className="loading">Cargando...</div>;
+        return (
+            <div>
+                <Navbar />
+                <div className="loading">Cargando...</div>
+            </div>
+        );
     }
 
     if (cart.length === 0) {
-        return <div className="empty-cart">No hay productos en el carrito.</div>;
+        return (
+            <div>
+                <Navbar />
+                <div className="empty-cart">No hay productos en el carrito.</div>
+            </div>
+        );
     }
 
     return (
@@ -63,6 +100,11 @@ const CartPage = () => {
                             <button onClick={confirmOrder}>Sí</button>
                             <button onClick={cancelOrder}>No</button>
                         </div>
+                    </div>
+                )}
+                {error && (
+                    <div className="error-message">
+                        <p>{error}</p>
                     </div>
                 )}
             </div>

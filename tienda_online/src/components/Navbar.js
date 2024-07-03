@@ -11,7 +11,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <Link to="/">Our Store</Link>
+                <Link to="/">Web store</Link>
             </div>
             <div className="navbar-links">
                 <Link to="/products">Inicio</Link>
@@ -19,8 +19,7 @@ const Navbar = () => {
                     <>
                         {user.rolID === 2 ? ( // Check if user is admin
                             <>
-                                <Link to="/admin">Admin Panel</Link>
-                                <Link to="/admin/orders">Order Management</Link>
+                                <Link to="/admin">Panel de admin</Link>
                             </>
                         ) : (
                             <>

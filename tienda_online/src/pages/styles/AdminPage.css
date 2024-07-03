@@ -1,3 +1,5 @@
+/* AdminPage.css */
+
 body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
@@ -219,8 +221,7 @@ button:hover {
     margin-bottom: 15px;
 }
 
-.admin-form .form-group input,
-.admin-form .form-group textarea {
+.admin-form .form-group input, .admin-form .form-group textarea {
     width: 100%;
     padding: 10px;
     margin: 5px 0;
@@ -251,8 +252,7 @@ textarea::placeholder {
     background: #218838;
 }
 
-.admin-form .form-group input[type="text"],
-.admin-form .form-group input[type="number"] {
+.admin-form .form-group input[type="text"], .admin-form .form-group input[type="number"] {
     text-align: center;
 }
 
@@ -283,6 +283,15 @@ textarea::placeholder {
     text-align: center;
 }
 
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background: #444;
+    color: #fff;
+}
+
 .product-cards {
     display: flex;
     flex-wrap: wrap;
@@ -295,7 +304,7 @@ textarea::placeholder {
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
-    flex: 0 1 calc(20% - 10px);
+    flex: 1 1 calc(20% - 10px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -303,8 +312,9 @@ textarea::placeholder {
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;  /* Establece el ancho de la imagen al 100% del contenedor */
+    height: 200px; /* Establece una altura fija */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente el contenedor */
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -350,30 +360,32 @@ button {
 button:hover {
     background: #218838;
 }
-/* AdminPage.css */
 
+/* AdminPage.css */
 .notification {
     position: fixed;
-    top: 10%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 128, 0, 0.8); /* Fondo verde con opacidad */
+    background-color: rgba(0, 128, 0, 0.9); /* Fondo verde con opacidad */
     color: white;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     z-index: 1000;
     text-align: center;
-    font-size: 24px;
-    width: 50%;
+    font-size: 18px;
+    width: auto;
+    max-width: 80%;
 }
 
 .notification .close-button {
     background: none;
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
     cursor: pointer;
 }
+

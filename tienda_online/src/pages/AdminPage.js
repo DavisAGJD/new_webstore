@@ -1,4 +1,4 @@
-// src/pages/AdminDashboard.js
+// src/pages/AdminPage.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -8,7 +8,7 @@ import './styles/Modal.css';
 
 Modal.setAppElement('#root');
 
-const AdminDashboard = () => {
+const AdminPage = () => {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [newProduct, setNewProduct] = useState({
@@ -17,10 +17,11 @@ const AdminDashboard = () => {
         stock: '',
         description: '',
         image: '',
-        categoryID: '' // Nuevo campo para la categoría
+        categoryID: ''
     });
     const [editProduct, setEditProduct] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [notification, setNotification] = useState('');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -54,10 +55,12 @@ const AdminDashboard = () => {
                 Stock: newProduct.stock,
                 Descripcion: newProduct.description,
                 Imagen: newProduct.image,
-                CategoriaID: newProduct.categoryID // Enviar la categoría
+                CategoriaID: newProduct.categoryID
             });
             setProducts([...products, res.data]);
             setNewProduct({ name: '', price: '', stock: '', description: '', image: '', categoryID: '' });
+            setNotification('Producto añadido exitosamente.');
+            setTimeout(() => setNotification(''), 3000);
         } catch (error) {
             console.error('Error adding product', error);
         }
@@ -72,11 +75,13 @@ const AdminDashboard = () => {
                 Stock: editProduct.Stock,
                 Descripcion: editProduct.Descripcion,
                 Imagen: editProduct.Imagen,
-                CategoriaID: editProduct.CategoriaID // Enviar la categoría
+                CategoriaID: editProduct.CategoriaID
             });
             setProducts(products.map(product => product.ProductoID === editProduct.ProductoID ? res.data : product));
             setEditProduct(null);
             setIsModalOpen(false);
+            setNotification('Producto actualizado exitosamente.');
+            setTimeout(() => setNotification(''), 3000);
         } catch (error) {
             console.error('Error updating product', error);
         }
@@ -86,6 +91,8 @@ const AdminDashboard = () => {
         try {
             await axios.delete(`http://localhost:5000/api/products/${productId}`);
             setProducts(products.filter(product => product.ProductoID !== productId));
+            setNotification('Producto eliminado exitosamente.');
+            setTimeout(() => setNotification(''), 3000);
         } catch (error) {
             console.error('Error deleting product', error);
         }
@@ -251,8 +258,15 @@ const AdminDashboard = () => {
                     </div>
                 )}
             </Modal>
+            {notification && (
+                <div className="notification">
+                    {notification}
+                    <button className="close-button" onClick={() => setNotification('')}>×</button>
+                </div>
+            )}
         </div>
     );
 };
 
-export default AdminDashboard;
+export default AdminPage;
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import  AuthProvider  from './protected/AuthContext';
+import AuthProvider from './protected/AuthContext';
 import { CartProvider } from './components/CartContext';
 import ProtectedRoute from './protected/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
@@ -15,12 +15,11 @@ import CustomersPage from './pages/CustomerPage';
 import CategoriesPage from './pages/CategoriesPage';
 import CategoryProductsPage from './pages/CategoryProductsPage';
 
-
 const App = () => {
     return (
         <AuthProvider>
             <CartProvider>
-                <Router>                
+                <Router>
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage />} />
@@ -38,7 +37,7 @@ const App = () => {
                             path="/admin/orders"
                             element={<ProtectedRoute component={AdminOrdersPage} adminOnly />}
                         />
-                         <Route
+                        <Route
                             path="/admin/customers"
                             element={<ProtectedRoute component={CustomersPage} adminOnly />}
                         />

@@ -1,3 +1,22 @@
+/* CategoryProductsPage.css */
+
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #6bbf59;
+    color: #fff;
+}
+
+/* Product styles */
 .productos-container {
     padding: 20px;
     color: white;
@@ -15,53 +34,53 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .product-card {
-    background-color: #3c3c3c;
-    padding: 20px;
+    background: #444;
+    padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    margin-bottom: 10px;
+    flex: 1 1 calc(20% - 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1 1 300px; /* Esto asegura que las tarjetas se ajusten uniformemente */
 }
 
 .product-card img {
-    max-width: 100%;
+    max-width: 20%;
+    height: auto;
     border-radius: 10px;
-    margin-bottom: 15px;
-    height: 200px; /* Asegurar una altura uniforme para las imágenes */
-    object-fit: cover; /* Asegurar que la imagen se ajuste sin distorsión */
+    margin-bottom: 10px;
+}
+
+.product-info {
+    color: #fff;
+    margin-bottom: 10px;
 }
 
 .product-info h3 {
-    color: #ffcc00;
-    font-size: 1.5em;
-    margin: 10px 0;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .product-info p {
-    margin: 5px 0;
+    font-size: 14px;
 }
 
-/* Agregar al Carrito Button */
 .product-info button {
-    padding: 10px 15px;
-    background-color: #27ae60;
-    color: #fff;
+    padding: 8px 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
+    background: #28a745;
+    color: #fff;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s, transform 0.3s;
 }
 
 .product-info button:hover {
-    background-color: #1e8449;
-    transform: scale(1.05);
+    background: #218838;
 }
+
+

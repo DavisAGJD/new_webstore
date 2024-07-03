@@ -1,12 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { CartContext } from '../components/CartContext';
 import './styles/CategoryProductsPage.css';
+import './styles/Modal.css';
+
 const CategoryProductsPage = () => {
     const { categoryID } = useParams();
     const [categoryName, setCategoryName] = useState('');
     const [products, setProducts] = useState([]);
+    const [notification, setNotification] = useState('');
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const fetchProductsByCategory = async () => {
@@ -20,6 +25,18 @@ const CategoryProductsPage = () => {
         };
         fetchProductsByCategory();
     }, [categoryID]);
+
+    const handleAddToCart = (product) => {
+        addToCart(product);
+        setNotification('Producto añadido al carrito exitosamente');
+        setTimeout(() => {
+            setNotification('');
+        }, 5000); // Oculta la notificación después de 5 segundos
+    };
+
+    const closeNotification = () => {
+        setNotification('');
+    };
 
     return (
         <div>
@@ -35,11 +52,17 @@ const CategoryProductsPage = () => {
                                 <p>Precio: ${product.Precio}</p>
                                 <p>Stock: {product.Stock}</p>
                                 <p>Descripción: {product.Descripcion}</p>
-                                <button>Agregar al Carrito</button>
+                                <button onClick={() => handleAddToCart(product)}>Agregar al Carrito</button>
                             </div>
                         </div>
                     ))}
                 </div>
+                {notification && (
+                    <div className="notification">
+                        {notification}
+                        <button className="close-button" onClick={closeNotification}>X</button>
+                    </div>
+                )}
             </div>
         </div>
     );

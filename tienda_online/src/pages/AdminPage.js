@@ -1,8 +1,12 @@
 // src/pages/AdminDashboard.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import Sidebar from '../components/Sidebar';
 import './styles/AdminPage.css';
+import './styles/Modal.css';
+
+Modal.setAppElement('#root');
 
 const AdminDashboard = () => {
     const [products, setProducts] = useState([]);
@@ -16,6 +20,7 @@ const AdminDashboard = () => {
         categoryID: '' // Nuevo campo para la categoría
     });
     const [editProduct, setEditProduct] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -71,6 +76,7 @@ const AdminDashboard = () => {
             });
             setProducts(products.map(product => product.ProductoID === editProduct.ProductoID ? res.data : product));
             setEditProduct(null);
+            setIsModalOpen(false);
         } catch (error) {
             console.error('Error updating product', error);
         }
@@ -83,6 +89,11 @@ const AdminDashboard = () => {
         } catch (error) {
             console.error('Error deleting product', error);
         }
+    };
+
+    const handleEditProductClick = (product) => {
+        setEditProduct(product);
+        setIsModalOpen(true);
     };
 
     return (
@@ -163,75 +174,83 @@ const AdminDashboard = () => {
                                         <p>Categoría: {categories.find(cat => cat.CategoriaID === product.CategoriaID)?.Nombre || 'Sin categoría'}</p>
                                     </div>
                                     <div className="product-actions">
-                                        <button onClick={() => setEditProduct(product)}>Modificar</button>
+                                        <button onClick={() => handleEditProductClick(product)}>Modificar</button>
                                         <button onClick={() => handleDeleteProduct(product.ProductoID)}>Eliminar</button>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    {editProduct && (
-                        <div className="edit-product-form">
-                            <h3>Modificar Producto</h3>
-                            <form onSubmit={handleEditProduct}>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="Nombre"
-                                        value={editProduct.Nombre}
-                                        onChange={(e) => setEditProduct({ ...editProduct, Nombre: e.target.value })}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="number"
-                                        placeholder="Precio"
-                                        value={editProduct.Precio}
-                                        onChange={(e) => setEditProduct({ ...editProduct, Precio: e.target.value })}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="number"
-                                        placeholder="Stock"
-                                        value={editProduct.Stock}
-                                        onChange={(e) => setEditProduct({ ...editProduct, Stock: e.target.value })}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <textarea
-                                        placeholder="Descripción"
-                                        value={editProduct.Descripcion}
-                                        onChange={(e) => setEditProduct({ ...editProduct, Descripcion: e.target.value })}
-                                    ></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <input
-                                        type="text"
-                                        placeholder="URL de la Imagen"
-                                        value={editProduct.Imagen}
-                                        onChange={(e) => setEditProduct({ ...editProduct, Imagen: e.target.value })}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <select
-                                        value={editProduct.CategoriaID}
-                                        onChange={(e) => setEditProduct({ ...editProduct, CategoriaID: e.target.value })}
-                                    >
-                                        <option value="">Selecciona una categoría</option>
-                                        {categories.map(category => (
-                                            <option key={category.CategoriaID} value={category.CategoriaID}>
-                                                {category.Nombre}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-                                <button type="submit">Guardar Cambios</button>
-                            </form>
-                        </div>
-                    )}
                 </div>
             </div>
+            <Modal
+                isOpen={isModalOpen}
+                onRequestClose={() => setIsModalOpen(false)}
+                contentLabel="Modificar Producto"
+                className="Modal"
+                overlayClassName="Overlay"
+            >
+                {editProduct && (
+                    <div className="edit-product-form">
+                        <h3>Modificar Producto</h3>
+                        <form onSubmit={handleEditProduct}>
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    placeholder="Nombre"
+                                    value={editProduct.Nombre}
+                                    onChange={(e) => setEditProduct({ ...editProduct, Nombre: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="number"
+                                    placeholder="Precio"
+                                    value={editProduct.Precio}
+                                    onChange={(e) => setEditProduct({ ...editProduct, Precio: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="number"
+                                    placeholder="Stock"
+                                    value={editProduct.Stock}
+                                    onChange={(e) => setEditProduct({ ...editProduct, Stock: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <textarea
+                                    placeholder="Descripción"
+                                    value={editProduct.Descripcion}
+                                    onChange={(e) => setEditProduct({ ...editProduct, Descripcion: e.target.value })}
+                                ></textarea>
+                            </div>
+                            <div className="form-group">
+                                <input
+                                    type="text"
+                                    placeholder="URL de la Imagen"
+                                    value={editProduct.Imagen}
+                                    onChange={(e) => setEditProduct({ ...editProduct, Imagen: e.target.value })}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <select
+                                    value={editProduct.CategoriaID}
+                                    onChange={(e) => setEditProduct({ ...editProduct, CategoriaID: e.target.value })}
+                                >
+                                    <option value="">Selecciona una categoría</option>
+                                    {categories.map(category => (
+                                        <option key={category.CategoriaID} value={category.CategoriaID}>
+                                            {category.Nombre}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <button type="submit">Guardar Cambios</button>
+                        </form>
+                    </div>
+                )}
+            </Modal>
         </div>
     );
 };

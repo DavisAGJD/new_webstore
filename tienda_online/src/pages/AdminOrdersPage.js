@@ -33,7 +33,7 @@ const AdminOrdersPage = () => {
                         <div className="order-header">
                             <h3>ID pedido: <span className="highlight">{order.PedidoID}</span></h3>
                             <p>ID cliente: <span className="highlight">{order.ClienteID}</span></p>
-                            <p>Decha: {new Date(order.FechaPedido).toLocaleString()}</p>
+                            <p>Fecha: {new Date(order.FechaPedido).toLocaleString()}</p>
                             <p>Total: ${order.Total}</p>
                         </div>
                         <div className="order-products">

@@ -1,15 +1,15 @@
 const sql = require("mssql");
 
 const dbConfig = {
-  user: "sqlserver",
-  password: "tienda1-2.",
-  server: "34.31.209.81",
-  database: "webstore",
+  user: process.env.DB_USER || 'sqlserver',
+  password: process.env.DB_PASSWORD || 'tienda1-2.',
+  server: process.env.DB_SERVER || '34.31.209.81',
+  database: process.env.DB_DATABASE || 'webstore',
   options: {
-    encrypt: true, 
+    encrypt: true,
     enableArithAbort: true,
     trustServerCertificate: true
-  },
+  }
 };
 
 const poolPromise = new sql.ConnectionPool(dbConfig)

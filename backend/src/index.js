@@ -9,6 +9,12 @@ const { poolPromise } = require('../config/db');
 const app = express();
 
 app.use(bodyParser.json());
+
+const corsOptions = {
+  origin: 'https://web-store-three-silk.vercel.app',
+  optionsSuccessStatus: 200 
+};
+
 app.use(cors());
 
 app.get('/', (req, res) => {

@@ -4,6 +4,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
+const { poolPromise } = require('../config/db');
 
 const app = express();
 
@@ -27,8 +28,8 @@ app.get('/get/test/db', async (req, res) => {
       console.error('SQL error', err);
       res.status(500).json({ error: err.message });
     }
-  });
-
+});
+  
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

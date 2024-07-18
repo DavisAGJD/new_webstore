@@ -13,7 +13,6 @@ logs
 *.sqlite
 
 # Environment variables
-.env
 
 # Coverage directory used by testing tools
 coverage

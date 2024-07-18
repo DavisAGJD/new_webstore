@@ -22,9 +22,10 @@ app.get('/get/test/db', async (req, res) => {
     try {
       const pool = await poolPromise;
       const result = await pool.request().query('SELECT COUNT(*) as count FROM Usuarios');
-      res.json({count: result.recordset[0].count});
+      res.json({ count: result.recordset[0].count });
     } catch (err) {
-      res.status(500).json({error: err.message})
+      console.error('SQL error', err);
+      res.status(500).json({ error: err.message });
     }
   });
 

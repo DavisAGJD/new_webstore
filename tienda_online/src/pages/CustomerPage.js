@@ -11,7 +11,7 @@ const CustomersPage = () => {
         const fetchCustomers = async () => {
             try {
                 const token = localStorage.getItem('token'); // Obtener el token del localStorage
-                const res = await axios.get('http://localhost:5000/api/users/customers', {
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/users/customers`, {
                     headers: {
                         Authorization: `Bearer ${token}` // Incluir el token en los encabezados
                     }

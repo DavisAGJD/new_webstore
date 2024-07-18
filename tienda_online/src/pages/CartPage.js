@@ -26,7 +26,7 @@ const CartPage = () => {
                 estado: 'Pendiente'
             };
 
-            const response = await axios.post('http://localhost:5000/api/orders', order, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/orders`, order, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

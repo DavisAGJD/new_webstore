@@ -11,7 +11,7 @@ const OrderHistoryPage = () => {
     const fetchOrders = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:5000/api/orders/history', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/orders/history`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

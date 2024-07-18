@@ -26,7 +26,7 @@ const AdminPage = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/products');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
                 setProducts(res.data);
             } catch (error) {
                 console.error('Error fetching products', error);
@@ -35,7 +35,7 @@ const AdminPage = () => {
 
         const fetchCategories = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/products/categories');
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/products/categories`);
                 setCategories(res.data);
             } catch (error) {
                 console.error('Error fetching categories', error);
@@ -49,7 +49,7 @@ const AdminPage = () => {
     const handleAddProduct = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/products', {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/products`, {
                 Nombre: newProduct.name,
                 Precio: newProduct.price,
                 Stock: newProduct.stock,
@@ -69,7 +69,7 @@ const AdminPage = () => {
     const handleEditProduct = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(`http://localhost:5000/api/products/${editProduct.ProductoID}`, {
+            const res = await axios.put(`${process.env.REACT_APP_API_URL}/products/${editProduct.ProductoID}`, {
                 Nombre: editProduct.Nombre,
                 Precio: editProduct.Precio,
                 Stock: editProduct.Stock,
@@ -89,7 +89,7 @@ const AdminPage = () => {
 
     const handleDeleteProduct = async (productId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/products/${productId}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/products/${productId}`);
             setProducts(products.filter(product => product.ProductoID !== productId));
             setNotification('Producto eliminado exitosamente.');
             setTimeout(() => setNotification(''), 3000);

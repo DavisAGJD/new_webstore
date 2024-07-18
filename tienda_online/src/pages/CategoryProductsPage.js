@@ -16,7 +16,7 @@ const CategoryProductsPage = () => {
     useEffect(() => {
         const fetchProductsByCategory = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/products/category/${categoryID}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/products/category/${categoryID}`);
                 setCategoryName(response.data.categoryName);
                 setProducts(response.data.products);
             } catch (error) {

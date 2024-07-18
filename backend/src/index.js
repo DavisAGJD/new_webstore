@@ -10,9 +10,23 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+    res.send("Hola, este es tu back");
+});
+
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/', orderRoutes);
+
+app.get('/get/test/db', async (req, res) => {
+    try {
+      const pool = await poolPromise;
+      const result = await pool.request().query('SELECT COUNT(*) as count FROM Usuarios');
+      res.json({count: result.recordset[0].count});
+    } catch (err) {
+      res.status(500).json({error: err.message})
+    }
+  });
 
 const PORT = process.env.PORT || 5000;
 

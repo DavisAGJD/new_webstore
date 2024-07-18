@@ -1,12 +1,12 @@
 const sql = require("mssql");
 
 const dbConfig = {
-  user: "Davistranger",
-  password: "tienda1-2<>",
-  server: "localhost",
+  user: "sqlserver",
+  password: "tienda1-2.",
+  server: "34.31.209.81",
   database: "webstore",
   options: {
-    encrypt: true, // Use this if you're on Windows Azure
+    encrypt: true, 
     enableArithAbort: true,
     trustServerCertificate: true
   },

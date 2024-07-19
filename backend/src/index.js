@@ -20,7 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
-
+app.get('/', (req, res) => {
+    res.send("Hola, este es tu back");
+});
 
 app.get('/get/test/db', async (req, res) => {
     try {

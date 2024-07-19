@@ -12,18 +12,17 @@ app.use(bodyParser.json());
 
 const corsOptions = {
   origin: 'https://web-store-three-silk.vercel.app',
-  optionsSuccessStatus: 200 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send("Hola, este es tu back");
 });
-
-app.use('/api/users', userRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/', orderRoutes);
 
 app.get('/get/test/db', async (req, res) => {
     try {
@@ -35,6 +34,10 @@ app.get('/get/test/db', async (req, res) => {
       res.status(500).json({ error: err.message });
     }
 });
+
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/', orderRoutes);
   
 const PORT = process.env.PORT || 5000;
 

@@ -6,9 +6,8 @@ const dbConfig = {
   server: "34.31.209.81",
   database: "webstore",
   options: {
-    encrypt: true, 
-    enableArithAbort: true,
-    trustServerCertificate: true
+    encrypt: false, 
+    enableArithAbort: true
   },
 };
 
@@ -22,7 +21,6 @@ const poolPromise = new sql.ConnectionPool(dbConfig)
     console.error("Database Connection Failed! Bad Config: ", err);
     throw err;
   });
-  
 
 module.exports = {
   sql,

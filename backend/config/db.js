@@ -7,7 +7,9 @@ const dbConfig = {
   database: "webstore",
   options: {
     encrypt: false, 
-    enableArithAbort: true
+    enableArithAbort: true,
+    connectTimeout: 30000,
+    requestTimeout: 30000
   },
 };
 

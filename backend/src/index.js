@@ -39,6 +39,15 @@ app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/', orderRoutes);
   
+app.use((req, res, next) => {
+  res.status(404).send("Página no encontrada");
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Algo salió mal!');
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

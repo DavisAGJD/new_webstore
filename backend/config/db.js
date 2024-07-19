@@ -8,8 +8,6 @@ const dbConfig = {
   options: {
     encrypt: false, 
     enableArithAbort: true,
-    connectTimeout: 30000,
-    requestTimeout: 30000
   },
 };
 
